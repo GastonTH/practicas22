@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center p-4"> 
+
+   <form>
+    <div class="img-dropper d-flex justify-content-center">
+        <img src="../assets/img/ArdisappLogo.png" width="60px" alt="logo" class="avatar-container-rounded img-fluid">
+    </div>
+
+    <div class="name-container d-flex flex-column"> 
+        <div *ngIf="user.name == '' || user.name == undefined || inputEnabled" class="name-form-container d-flex flex-column">
+            <mat-form-field fullWidth class="example-full-width" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input name="userName" matInput placeholder="Tu nombre..." value="" [(ngModel)]="userName">
+                <mat-icon (click)="inputEnabled = false" style="margin-left:1rem;" matSuffix>close</mat-icon>
+              </mat-form-field>
+              <button (click)="saveUser()" mat-raised-button color="primary">Guardar</button>
+        </div>
+        
+        <div *ngIf="user.name != '' && !inputEnabled" class="name-form-container d-flex flex-row justify-content-center ">
+            <span class="name-form-container-text">{{user.name}}</span>
+            <mat-icon (click)="inputEnabled = true" style="margin-left:1rem; float: right;" matSuffix>mode_edit</mat-icon>
+        </div>
+    </div>
+   </form> 
+    
+
+</div>
