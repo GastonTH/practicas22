@@ -36,6 +36,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatCheckboxModule    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    MatCardModule
+  ]
 })
 export class AppModule { }

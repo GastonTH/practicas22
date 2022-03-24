@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
       name:'Profile',
       path:'profile',
       icon:'fa-user'
+   },
+   {
+     name:'Cats',
+     path:'cats',
+     icon:'fa-user'
    }
  ]
   public user:User = {
