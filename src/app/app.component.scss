@@ -50,8 +50,7 @@ li {
 header {
 	/*Strictly Necessary */
     height:100px;
-	
-	
+		
 	/*Aesthetics*/
 
 	border-bottom:1px solid #333;
@@ -70,13 +69,13 @@ header {
 	display:flex;
 	flex-flow: row wrap;
     height:calc(100vh - 100px);
+    overflow-y: hidden;
 } 
 
 main, section, footer {
     /*Aesthetics*/
-
+     overflow-y: scroll;
 	 border-radius: 7px; 
-	 margin: 5px; 
 	 padding: 20px;
 }
 
@@ -85,6 +84,7 @@ main {
   height: 100%;
   order: 1;
   flex: 0 1 100%; 
+
 	
 }
 
