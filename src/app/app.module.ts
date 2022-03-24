@@ -12,6 +12,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +30,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatCheckboxModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
