@@ -7,14 +7,25 @@
         </mat-card-header>
         <mat-spinner class="centerSpinner" *ngIf="post.isLoading"></mat-spinner>
         <img mat-card-image (load)="post.isLoading=false" [src]="post.image" alt="Photo of a cat">
-        <mat-card-content>
-            <p>
-                {{post.fact}}
-            </p>
-        </mat-card-content>
         <mat-card-actions>
             <button mat-button>LIKE</button>
             <button mat-button>SHARE</button>
         </mat-card-actions>
+        <mat-card-content>
+            <p>
+                {{post.fact}}
+            </p>
+            <div *ngFor="let comment of post.commentList">
+                <p>
+                    {{post.commentList}}
+                </p>
+            </div>
+        </mat-card-content>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Add</mat-label>
+            <input name="nameNewCheck" matInput placeholder="Add something">
+            <mat-icon matSuffix >add</mat-icon>
+        </mat-form-field>
+
     </mat-card>
 </div>

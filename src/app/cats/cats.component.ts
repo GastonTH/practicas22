@@ -6,13 +6,15 @@ import { forkJoin } from 'rxjs';
 export interface Cat {
   image:string,
   fact:string,
-  isLoading:boolean
+  isLoading:boolean,
+  commentList:Array<string>
 }
 export class Cat{
   constructor(cat:Cat){
     this.image = cat.image || '';
     this.fact = cat.fact || '';
     this.isLoading = true;
+    this.commentList = Array<string>();
 
   }
 }
@@ -42,7 +44,8 @@ export class CatsComponent implements OnInit {
         let cat = new Cat({
           image:image.url,
           fact: results[1].data[index].fact,
-          isLoading: true
+          isLoading: true,
+          commentList: new Array<string>()
         })
         this.posts.push(cat);
       })
