@@ -11,10 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,15 +30,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    MatButtonModule,
-    MatCardModule,
     MatSnackBarModule,
-    MatCheckboxModule    
+    MatCheckboxModule,
+    SharedModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
   exports:[
-    MatCardModule
   ]
 })
 export class AppModule { }
