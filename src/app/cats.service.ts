@@ -9,11 +9,11 @@ export class CatsService {
   constructor(private http:HttpClient) { }
 
   getCat(){
-    return this.http.get("https://api.thecatapi.com/v1/images/search")
+    return this.http.get("https://api.thecatapi.com/v1/images/search?limit=3")
   }
 
   getCatFact(){
-    return this.http.get("https://catfact.ninja/fact")
+    return this.http.get("https://catfact.ninja/facts?limit=3")
   }
 
 }

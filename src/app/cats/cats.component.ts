@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatsService } from '../cats.service';
+import { forkJoin } from 'rxjs';
+
 
 export interface Cat {
   image:string,
@@ -22,28 +24,27 @@ export class Cat{
 export class CatsComponent implements OnInit {
 
   public currentCat:any;
+  public isLoadingCat:Boolean = true;
+  public posts:Cat[]=[];
 
   constructor(private catService: CatsService) { }
 
+
   ngOnInit(): void {
 
-    this.currentCat = new Cat({
-      image:'',
-      fact:''
-    })
+    let image = this.catService.getCat();
+    let fact = this.catService.getCatFact();
+  
+    forkJoin([image, fact]).subscribe((results:any) => {
 
-    this.catService.getCat().subscribe((data:any) => {
-      let image = data[0].url;
-      this.currentCat.image = image;
-      console.log("imagen actualizada");
-      
-    })
-
-    this.catService.getCatFact().subscribe((data:any) =>{
-      let fact =  data.fact
-      this.currentCat.fact = fact
-      console.log("frase actualizada");
-      
+      results[0].forEach((image:any, index:number)=> {
+        let cat = new Cat({
+          image:image.url,
+          fact: results[1].data[index].fact,
+        })
+        this.posts.push(cat);
+      })
+      console.log(this.posts);
     })
 
   }
