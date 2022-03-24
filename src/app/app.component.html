@@ -22,8 +22,8 @@
 
      <div *ngIf="user.name != undefined  " class="user-info d-flex align-items-center">
         <div class="user-info-container d-flex align-items-center">
-          <img src="../assets/img/ArdisappLogo.png" width="60px" alt="logo" class="avatar-container-rounded img-fluid">
-          <span class="user-info-text">{{user.name}}</span>
+          <img [src]="user.avatar?user.avatar:'../assets/img/incognito.png'" width="160px" alt="logo" class="avatar-container-rounded img-fluid">
+          <span style="margin-right: 10px;" class="user-info-text">{{user.name}}</span>
       
         </div>
      </div>

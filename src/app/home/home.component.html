@@ -2,15 +2,15 @@
     <!--Bonito-->
     <!--dentro del ngFor le asignamos un indice a cada elemento del array que estamos recorriendo-->
     <section *ngFor="let checkBx of checkList; let elementIndex = index" class="checkStyle">
-        <!--If is checked-->
-        <mat-checkbox (change)="checkValue($event, elementIndex)" [class.isCheckedStyle]="checkBx.isChecked"
-            [checked]="checkBx.isChecked">{{checkBx.name}}</mat-checkbox>
-
-
-        <mat-icon (click)="deleteItem(elementIndex)">delete</mat-icon>
+        <div class="prettyCheckBox">
+            <!--If is checked-->
+            <mat-checkbox  (change)="checkValue($event, elementIndex)" [class.isCheckedStyle]="checkBx.isChecked"
+                [checked]="checkBx.isChecked">{{checkBx.name}}</mat-checkbox>
+    
+            <mat-icon (click)="deleteItem(elementIndex)">delete</mat-icon></div>
     </section>
     <!--...-->
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field style="width: 100%;">
         <mat-label>Add</mat-label>
         <input name="nameNewCheck" [(ngModel)]="nameNewCheck" matInput placeholder="Add something">
         <mat-icon matSuffix (click)="addToCheckList()">add</mat-icon>

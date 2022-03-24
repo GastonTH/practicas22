@@ -1,3 +1,4 @@
+import { ReadKeyExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { UserDataServiceService } from '../user-data-service.service';
 
@@ -15,7 +16,7 @@ export interface User {
 export class ProfileComponent implements OnInit {
 
 
-public inputEnabled:boolean = false;
+public inputEnabled:boolean = true;
 user:User = {
   name:'',
   avatar:''
@@ -39,13 +40,25 @@ public userName = this.user.name
 
     this.UserService.modifyUser({
       name:this.userName,
-      avatar:'',
+      avatar:this.user.avatar,
     })
     this.inputEnabled = false;
 
     console.log(this.user)
   }
 
+  onItemChange(file:any){
 
+    let reader = new FileReader();
+    reader.onload = (evento:any) =>{
+      console.log(evento.target.result);
+      this.user.avatar = evento.target.result;
+      
+    }
 
+    if (file) {
+      reader.readAsDataURL(file.target.files[0])
+    }
+
+  }
 }
