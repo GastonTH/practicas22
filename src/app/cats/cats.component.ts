@@ -23,6 +23,7 @@ export interface Comment {
   text: string,
   emitter: string,
   creationDate: string,
+  likeComment:boolean,
   response: Array<Comment>
 }
 
@@ -51,6 +52,7 @@ export class Comment {
     this.text = com.text || '';
     this.emitter = com.emitter || '';
     this.creationDate = com.creationDate || '';
+    this.likeComment = false;
     this.response = com.response || [];
   }
   text: string;
@@ -143,6 +145,7 @@ export class CatsComponent implements OnInit {
         text: this.newComments[index],
         emitter: this.user.name,
         creationDate: moment().fromNow(),
+        likeComment: false,
         response: Array<Comment>()
       });
 
@@ -183,16 +186,13 @@ export class CatsComponent implements OnInit {
   }
 
   cambiarLike(indexComment:number, postIndex:number){
-
-    console.log(this.posts[postIndex]);
-    console.log("comment number: " + indexComment);
-    
-    
     
     if (this.liked) {
       this.liked = false;
+      this.posts[postIndex].commentList[indexComment].likeComment = false;
     } else {
       this.liked = true;
+      this.posts[postIndex].commentList[indexComment].likeComment = true;
     }
 
   }

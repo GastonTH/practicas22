@@ -26,7 +26,7 @@
                 <p style="margin-right: 0.5rem;">
                     {{comment.creationDate}}
                 </p>
-                <mat-icon (click)="cambiarLike(indexComment, elementIndex)" [ngClass]="{'rojo': liked, 'azul': !liked}" matSuffix style="size: 10px;">favorite</mat-icon>
+                <mat-icon (click)="cambiarLike(indexComment, elementIndex)" [ngClass]="{'rojo': comment.likeComment, 'negro': !comment.likeComment}" matSuffix style="size: 10px;">favorite_border</mat-icon>
             </div>
         </mat-card-content>
         <mat-form-field style="width: 100%;">
