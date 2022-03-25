@@ -109,26 +109,19 @@ export class CatsComponent implements OnInit {
 
   public addComment(index:number){
 
-    console.log(index);
-    console.log(this.newComments[index]);
-    this.posts[index].commentList.push(this.newComments[index])
-    this.newComments[index] = "";
-    
-    
-/*
     // Comprobar si hay un nombre de usuario guardado
     if (this.userName != undefined && this.userName != '') {
       // si hay un nombre de usuario guardado entonces puedes agregar tareas a la lista
       
-      this.posts[index].commentList.push(this.newComment)
-      this.newComment = "";
+      this.posts[index].commentList.push("Usuario: " + this.userName + " -> " + this.newComments[index])
+      this.newComments[index] = "";
 
     } else {
 
       // si no, debera aparecer una alerta y pedirte que guardes un nombre de usuario
       this.openSnackBar();
 
-    }*/
+    }
 
   }
 
