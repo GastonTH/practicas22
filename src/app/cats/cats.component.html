@@ -8,23 +8,24 @@
         <mat-spinner class="centerSpinner" *ngIf="post.isLoading"></mat-spinner>
         <img mat-card-image (load)="post.isLoading=false" [src]="post.image" alt="Photo of a cat">
         <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
+            <mat-icon matSuffix (click)="likePost(elementIndex)">{{post.like}}</mat-icon>
+            {{post.likeNumber}}
+            <mat-icon style="margin-left: 20px;" matSuffix (click)="sharePost(elementIndex)">share</mat-icon>
         </mat-card-actions>
         <mat-card-content>
             <p>
                 {{post.fact}}
             </p>
-            <div *ngFor="let comment of post.commentList">
-                <p>
-                    {{post.commentList}}
-                </p>
-            </div>
+            <p *ngFor="let comment of post.commentList" class="commentP">
+                {{comment}}
+            </p>
         </mat-card-content>
+
         <mat-form-field style="width: 100%;">
-            <mat-label>Add</mat-label>
-            <input name="nameNewCheck" matInput placeholder="Add something">
-            <mat-icon matSuffix >add</mat-icon>
+            <mat-label>Comment</mat-label>
+            <input (keyup.enter)="addComment(elementIndex)" [(ngModel)]="newComments[elementIndex]" matInput
+                placeholder="Add comment">
+            <mat-icon matSuffix (click)="addComment(elementIndex)">add_circle_outline</mat-icon>
         </mat-form-field>
 
     </mat-card>

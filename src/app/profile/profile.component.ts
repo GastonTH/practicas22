@@ -37,7 +37,6 @@ public userName = this.user.name
 
   saveUser(){
 
-
     this.UserService.modifyUser({
       name:this.userName,
       avatar:this.user.avatar,

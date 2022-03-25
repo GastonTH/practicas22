@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    MatSnackBarModule
     
   ],
   exports:[
@@ -24,8 +28,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatIconModule
-
+    MatIconModule,
+    FormsModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

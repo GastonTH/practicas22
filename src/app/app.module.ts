@@ -8,11 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatSnackBarModule,
     MatCheckboxModule,
     SharedModule,
     HttpClientModule 
