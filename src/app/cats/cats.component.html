@@ -15,12 +15,20 @@
         <mat-card-content>
             <p>
                 {{post.fact}}
-            </p>
-            <p *ngFor="let comment of post.commentList" class="commentP">
-                {{comment}}
-            </p>
+            </p>    
+            <div *ngFor="let comment of post.commentList; let indexComment = index" class="commentP d-flex d-flex-nowrap">
+                <p style="margin-right: 0.5rem; font-weight: bold;">
+                    {{comment.emitter}}
+                </p>
+                <p style="margin-right: 0.5rem;">
+                    {{comment.text}}
+                </p>
+                <p style="margin-right: 0.5rem;">
+                    {{comment.creationDate}}
+                </p>
+                <mat-icon (click)="cambiarLike(indexComment, elementIndex)" [ngClass]="{'rojo': liked, 'azul': !liked}" matSuffix style="size: 10px;">favorite</mat-icon>
+            </div>
         </mat-card-content>
-
         <mat-form-field style="width: 100%;">
             <mat-label>Comment</mat-label>
             <input (keyup.enter)="addComment(elementIndex)" [(ngModel)]="newComments[elementIndex]" matInput

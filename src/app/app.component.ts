@@ -7,7 +7,7 @@ import { User, UserDataServiceService } from './user-data-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
- public title = 'ArdisApp';
+ public title = 'CatsTagram';
  public menuItems = [
    {
      name:'Home',
